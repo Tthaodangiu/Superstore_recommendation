@@ -1,33 +1,87 @@
+// ======================
+// GLOBAL
+// ======================
 let DATA = {};
 let IMAGES = {};
+let productName = "";
 
-async function load() {
-  const res1 = await fetch("./data.json");
-  DATA = await res1.json();
+// ======================
+// INIT
+// ======================
+async function init() {
+  try {
+    // lấy product từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    productName = decodeURIComponent(urlParams.get("name") || "");
 
-  const res2 = await fetch("./images.json");
-  IMAGES = await res2.json();
+    if (!productName) {
+      showError("Không tìm thấy sản phẩm");
+      return;
+    }
 
-  render();
+    // load data
+    const res1 = await fetch("./data.json");
+    DATA = await res1.json();
+
+    const res2 = await fetch("./images.json");
+    IMAGES = await res2.json();
+
+    renderProduct();
+    renderRecommendation();
+
+  } catch (err) {
+    console.error(err);
+    showError("Lỗi tải dữ liệu");
+  }
 }
 
-function getQuery() {
-  return new URL(window.location.href).searchParams.get("name");
+// ======================
+// UTIL
+// ======================
+function getImage(name) {
+  return IMAGES[name] || "https://via.placeholder.com/400?text=No+Image";
 }
 
-function render() {
-  const name = getQuery();
+function findSub(product) {
+  for (let sub in DATA.subcategories) {
+    if (DATA.subcategories[sub].top_products.includes(product)) {
+      return sub;
+    }
+  }
+  return null;
+}
+
+function randomPrice() {
+  return (Math.floor(Math.random() * 500) + 100) + ".000đ";
+}
+
+function showError(msg) {
+  document.getElementById("productDetail").innerHTML = `
+    <div style="padding:20px">${msg}</div>
+  `;
+}
+
+// ======================
+// RENDER PRODUCT
+// ======================
+function renderProduct() {
+  const sub = findSub(productName);
+  const img = getImage(productName);
 
   document.getElementById("productDetail").innerHTML = `
     <div class="detailCard">
 
       <div class="detailHero">
-        <img src="${IMAGES[name] || ""}" class="detailImg"/>
+        <img src="${img}" class="detailImg"/>
       </div>
 
       <div class="detailBody">
 
-        <h2 class="detailTitle">${name}</h2>
+        <h2 class="detailTitle">${productName}</h2>
+
+        <div class="detailMeta">
+          📦 ${sub || "Không xác định"}
+        </div>
 
         <div class="productMeta">
           ⭐⭐⭐⭐⭐ | Đã bán 200+
@@ -38,11 +92,14 @@ function render() {
         </div>
 
         <p class="detailDesc">
-          Sản phẩm chất lượng cao, phù hợp cho nhu cầu sử dụng hàng ngày.
+          Đây là sản phẩm thuộc danh mục <b>${sub}</b>.
+          Hệ thống gợi ý sử dụng Association Rules từ dataset Superstore.
         </p>
 
         <div class="detailActions">
-          <button class="buyBtn">Mua ngay</button>
+          <button class="buyBtn" onclick="addToCart('${productName}')">
+            🛒 Thêm vào giỏ
+          </button>
           <a href="index.html">← Quay lại</a>
         </div>
 
@@ -52,33 +109,65 @@ function render() {
   `;
 }
 
-  // sản phẩm
-  document.getElementById("productDetail").innerHTML = `
-    <h2>${name}</h2>
-    <img src="${IMAGES[name] || ""}" width="300"/>
-  `;
+// ======================
+// RENDER RECOMMENDATION
+// ======================
+function renderRecommendation() {
 
-  // recommend
+  const sub = findSub(productName);
+
+  if (!sub) {
+    document.getElementById("recoList").innerHTML = "Không có gợi ý";
+    return;
+  }
+
+  const rules = DATA.subcategories[sub].rules;
+
+  if (!rules || rules.length === 0) {
+    document.getElementById("recoList").innerHTML = "Không có gợi ý phù hợp";
+    return;
+  }
+
+  // 👉 chỉ lấy rule mạnh nhất
+  const bestRule = rules[0];
+
+  const targetSub = bestRule.target_subcategory;
+
+  const products =
+    DATA.subcategories[targetSub].top_products.slice(0, 2);
+
   let html = "";
 
-  rules.slice(0,2).forEach(r => {
-    const products =
-      DATA.subcategories[r.target_subcategory].top_products.slice(0,2);
+  products.forEach(p => {
+    const img = getImage(p);
 
-    products.forEach(p => {
-      html += `<div>${p}</div>`;
-    });
+    html += `
+      <div class="recoCard">
+
+        <img src="${img}" class="recoImg"/>
+
+        <div class="recoInfo">
+          <div class="recoName">${p}</div>
+          <div class="recoMeta">
+            ✨ ${targetSub} | conf ${bestRule.confidence.toFixed(2)}
+          </div>
+        </div>
+
+      </div>
+    `;
   });
 
   document.getElementById("recoList").innerHTML = html;
-
-
-function findSub(product) {
-  for (let sub in DATA.subcategories) {
-    if (DATA.subcategories[sub].top_products.includes(product)) {
-      return sub;
-    }
-  }
 }
 
-load();
+// ======================
+// CART (OPTIONAL)
+// ======================
+function addToCart(product) {
+  alert("Đã thêm vào giỏ: " + product);
+}
+
+// ======================
+// RUN
+// ======================
+init();
