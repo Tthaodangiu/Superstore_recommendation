@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Superstore Reco</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="topbar__left">☰</div>
+
+  <div class="topbar__center">
+    <div class="brand">PRODUCT RECOMMENDATION SYSTEM</div>
+    <div class="tagline">Association Rules Demo</div>
+  </div>
+
+  <div class="topbar__right">
+    🔍
+    🛒 <span id="cartCount">0</span>
+  </div>
+
+</header>
+
+<!-- MENU -->
+<div id="menu" class="menu"></div>
+
+
+<!-- SEARCH -->
+<div class="searchBar">
+  <input id="searchInput" placeholder="🔍 Tìm sản phẩm..." />
+</div>
+
+<div class="layout">
+
+  <!-- CART -->
+  <aside class="cart">
+    <h3>🛒 Giỏ hàng</h3>
+    <div id="cartList"></div>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <main>
+    <div id="productContainer"></div>
+  </main>
+
+  <!-- RECOMMEND -->
+  <aside class="recommend">
+    <h3>✨ Gợi ý</h3>
+    <div id="recoList">Chọn sản phẩm để xem gợi ý</div>
+  </aside>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

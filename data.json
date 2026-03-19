@@ -1,0 +1,323 @@
+{
+  "subcategories": {
+    "Accessories": {
+      "top_products": [
+        "Logitech Desktop MK120 Mouse and keyboard Combo",
+        "Kingston Digital DataTraveler 16GB USB 2.0",
+        "Maxell 4.7GB DVD-R",
+        "Logitech 910-002974 M325 Wireless Mouse for Web Scrolling",
+        "Memorex Micro Travel Drive 16 GB"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Phones",
+          "confidence": 0.6375634517766497
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.4444444444444445
+        }
+      ]
+    },
+    "Appliances": {
+      "top_products": [
+        "Staple holder",
+        "Acco Six-Outlet Power Strip, 4' Cord Length",
+        "Fellowes Basic Home/Office Series Surge Protectors",
+        "Belkin 5 Outlet SurgeMaster Power Centers",
+        "Honeywell Enviracaire Portable HEPA Air Cleaner for 17' x 22' Room"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.5846153846153846
+        },
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.49889135254988914
+        }
+      ]
+    },
+    "Art": {
+      "top_products": [
+        "Staples in misc. colors",
+        "Newell 312",
+        "4009 Highlighters by Sanford",
+        "Hunt PowerHouse Electric Pencil Sharpener, Blue",
+        "Crayola Colored Pencils"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.5800273597811217
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.36974789915966383
+        }
+      ]
+    },
+    "Binders": {
+      "top_products": [
+        "Storex Dura Pro Binders",
+        "Wilson Jones Turn Tabs Binder Tool for Ring Binders",
+        "Avery Non-Stick Binders",
+        "GBC Premium Transparent Covers with Diagonal Lined Pattern",
+        "GBC Ibimaster 500 Manual ProClick Binding System"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.724907063197026
+        },
+        {
+          "target_subcategory": "Storage",
+          "confidence": 0.7142857142857142
+        }
+      ]
+    },
+    "Bookcases": {
+      "top_products": [
+        "O'Sullivan 4-Shelf Bookcase in Odessa Pine",
+        "Atlantic Metals Mobile 3-Shelf Bookcases, Custom Colors",
+        "Bush Andora Bookcase, Maple/Graphite Gray Finish",
+        "Bush Heritage Pine Collection 5-Shelf Bookcase, Albany Pine Finish, *Special Order",
+        "Bush Westfield Collection Bookcases, Medium Cherry Finish"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Chairs",
+          "confidence": 0.5416666666666666
+        },
+        {
+          "target_subcategory": "Furnishings",
+          "confidence": 0.4054054054054054
+        }
+      ]
+    },
+    "Chairs": {
+      "top_products": [
+        "High-Back Leather Manager's Chair",
+        "Hon Every-Day Series Multi-Task Chairs",
+        "Situations Contoured Folding Chairs, 4/Set",
+        "Global High-Back Leather Tilter, Burgundy",
+        "SAFCO Arco Folding Chair"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Furnishings",
+          "confidence": 0.8592750533049041
+        },
+        {
+          "target_subcategory": "Tables",
+          "confidence": 0.7702312138728323
+        }
+      ]
+    },
+    "Copiers": {
+      "top_products": [
+        "Hewlett Packard LaserJet 3310 Copier",
+        "Canon PC-428 Personal Copier",
+        "Hewlett Packard 610 Color Digital Copier / Printer",
+        "Canon imageCLASS 2200 Advanced Copier",
+        "Brother DCP1000 Digital 3 in 1 Multifunction Machine"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.6029411764705882
+        }
+      ]
+    },
+    "Envelopes": {
+      "top_products": [
+        "Staple envelope",
+        "#10- 4 1/8\" x 9 1/2\" Recycled Envelopes",
+        "Globe Weis Peel & Seel First Class Envelopes",
+        "White Business Envelopes with Contemporary Seam, Recycled White Business Envelopes",
+        "#10 White Business Envelopes,4 1/8 x 9 1/2"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.7317073170731707
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.5467479674796748
+        }
+      ]
+    },
+    "Fasteners": {
+      "top_products": [
+        "Staples",
+        "Advantus Plastic Paper Clips",
+        "OIC Colored Binder Clips, Assorted Sizes",
+        "OIC Binder Clips",
+        "Stockwell Push Pins"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.7142857142857142
+        },
+        {
+          "target_subcategory": "Storage",
+          "confidence": 0.4054054054054054
+        }
+      ]
+    },
+    "Furnishings": {
+      "top_products": [
+        "Eldon Wave Desk Accessories",
+        "Staple-based wall hangings",
+        "Longer-Life Soft White Bulbs",
+        "DAX Wood Document Frame",
+        "Howard Miller 13-3/4\" Diameter Brushed Chrome Round Wall Clock"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Chairs",
+          "confidence": 0.8592750533049041
+        },
+        {
+          "target_subcategory": "Tables",
+          "confidence": 0.6777456647398843
+        }
+      ]
+    },
+    "Labels": {
+      "top_products": [
+        "Avery 485",
+        "Avery 4027 File Folder Labels for Dot Matrix Printers, 5000 Labels per Box, White",
+        "Alphabetical Labels for Top Tab Filing",
+        "Avery 476",
+        "Avery 499"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.6097560975609757
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.6025641025641025
+        }
+      ]
+    },
+    "Machines": {
+      "top_products": [
+        "Lexmark MX611dhe Monochrome Laser Printer",
+        "Fellowes Powershred HS-440 4-Sheet High Security Shredder",
+        "Cisco 9971 IP Video Phone Charcoal",
+        "Bady BDG101FRU Card Printer",
+        "Ricoh - Ink Collector Unit for GX3000 Series Printers"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.40178571428571425
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.33035714285714285
+        }
+      ]
+    },
+    "Paper": {
+      "top_products": [
+        "Easy-staple paper",
+        "Xerox 226",
+        "Southworth 100% Résumé Paper, 24lb.",
+        "Xerox 191",
+        "Xerox 1945"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Envelopes",
+          "confidence": 0.7317073170731707
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.6925837320574163
+        }
+      ]
+    },
+    "Phones": {
+      "top_products": [
+        "I Need's 3d Hello Kitty Hybrid Silicone Case Cover for HTC One X 4g with 3d Hello Kitty Stylus Pen Green/pink",
+        "Pyle PMP37LED",
+        "Jabra SPEAK 410",
+        "Nortel Networks T7316 E Nt8 B27",
+        "Geemarc AmpliPOWER60"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Accessories",
+          "confidence": 0.6375634517766497
+        },
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.5384615384615384
+        }
+      ]
+    },
+    "Storage": {
+      "top_products": [
+        "Fellowes Officeware Wire Shelving",
+        "Decoflex Hanging Personal Folder File, Blue",
+        "Iceberg Mobile Mega Data/Printer Cart",
+        "Carina Double Wide Media Storage Towers in Natural & Black",
+        "Fellowes Bankers Box Stor/Drawer Steel Plus"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.7142857142857142
+        },
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.5772681954137587
+        }
+      ]
+    },
+    "Supplies": {
+      "top_products": [
+        "Staple remover",
+        "Acme Hot Forged Carbon Steel Scissors with Nickel-Plated Handles, 3 7/8\" Cut, 8\"L",
+        "Acme Forged Steel Scissors with Black Enamel Handles",
+        "Acme Box Cutter Scissors",
+        "Fiskars Softgrip Scissors"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Paper",
+          "confidence": 0.5133689839572192
+        },
+        {
+          "target_subcategory": "Binders",
+          "confidence": 0.26737967914438504
+        }
+      ]
+    },
+    "Tables": {
+      "top_products": [
+        "KI Adjustable-Height Table",
+        "Chromcraft Round Conference Tables",
+        "Bretford Rectangular Conference Table Tops",
+        "KI Conference Tables",
+        "Chromcraft Rectangular Conference Tables"
+      ],
+      "rules": [
+        {
+          "target_subcategory": "Chairs",
+          "confidence": 0.8592750533049041
+        },
+        {
+          "target_subcategory": "Furnishings",
+          "confidence": 0.7560975609756098
+        }
+      ]
+    }
+  }
+}
