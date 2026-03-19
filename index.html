@@ -1,5 +1,45 @@
 <!doctype html>
 <html lang="vi">
+<!-- HERO SLIDER -->
+<div class="hero">
+
+  <div class="slides">
+
+    <div class="slide active">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" />
+      <div class="overlay">
+        <h1>Product Recommendation System</h1>
+        <p>Hệ thống gợi ý sản phẩm bằng Association Rules</p>
+        <button>Khám phá</button>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+      <div class="overlay">
+        <h1>Smart Shopping</h1>
+        <p>Gợi ý thông minh theo hành vi mua hàng</p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" />
+      <div class="overlay">
+        <h1>Data Driven</h1>
+        <p>Dựa trên dữ liệu thực tế Superstore</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- nút -->
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+
+  <!-- dots -->
+  <div class="dots"></div>
+
+</div>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,7 +72,11 @@
 
 <!-- SEARCH -->
 <div class="searchBar">
-  <input id="searchInput" placeholder="🔍 Tìm sản phẩm..." />
+<input 
+  id="searchInput"
+  class="input"
+  placeholder="🔍 Tìm sản phẩm..."
+/>
 </div>
 
 <div class="layout">
