@@ -1422,3 +1422,168 @@ body {
   font-weight: bold;
   border-bottom: 2px solid #2f5d50;
 }
+.recoCard {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.recoImg {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #eee;
+}
+
+.recoInfo {
+  flex: 1;
+}
+
+.recoName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.recoMeta {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+}
+
+.slides {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  left: 60px;
+  bottom: 80px;
+  color: white;
+  max-width: 500px;
+}
+
+.overlay h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.overlay button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #2f5d50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* button next prev */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: white;
+  margin: 0 4px;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.dots span.active {
+  opacity: 1;
+}
+.productMain {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.detailHero {
+  height: 400px;
+  background: #f3f3f3;
+}
+
+.detailImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detailTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.detailDesc {
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.productSide {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
