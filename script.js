@@ -33,7 +33,7 @@ function renderAll() {
             <div class="cardTitleLink">${p}</div>
 
             <button onclick="addToCart('${p.replace(/'/g, '\\\'')}')">Thêm vào giỏ</button>
-            <button onclick="goDetail('${p}')">Chi tiết</button>
+            <button onclick="goDetail('${encodeURIComponent(p)}')">
           </div>
 
         </div>
@@ -45,7 +45,9 @@ function renderAll() {
     `;
   });
 }
-
+function goDetail(name){
+  window.location.href = `product.html?name=${name}`;
+}
 // ======================
 // ADD TO CART
 // ======================
@@ -236,29 +238,22 @@ function renderRecommendation() {
 // ======================
 // RECOMMEND MULTI
 // ======================
-function renderRecommendation() {
+function renderRecommendation(){
 
-  if (CART.length === 0) {
+  if(CART.length === 0){
     document.getElementById("recoList").innerHTML =
       "Chọn sản phẩm để xem gợi ý";
     return;
   }
 
-  // lấy subcategory của sản phẩm cuối cùng
   const lastProduct = CART[CART.length - 1];
   const sub = findSub(lastProduct);
 
   const rules = DATA.subcategories[sub].rules;
 
-  if (!rules || rules.length === 0) {
-    document.getElementById("recoList").innerHTML =
-      "Không có gợi ý phù hợp";
-    return;
-  }
+  if (!rules || rules.length === 0) return;
 
-  // 👉 chỉ lấy rule mạnh nhất
   const bestRule = rules[0];
-
   const targetSub = bestRule.target_subcategory;
 
   const products =
@@ -267,20 +262,29 @@ function renderRecommendation() {
   let html = "";
 
   products.forEach(p => {
+
+    const img = getImage(p); // 🔥 lấy ảnh từ images.json
+
     html += `
       <div class="recoCard">
-        <div class="thumb smallThumb"></div>
-        <div>
-          <div>${p}</div>
-          <div class="muted">
+
+        <img src="${img}" class="recoImg"/>
+
+        <div class="recoInfo">
+          <div class="recoName">${p}</div>
+          <div class="recoMeta">
             ✨ ${targetSub} | conf ${bestRule.confidence.toFixed(2)}
           </div>
         </div>
+
       </div>
     `;
   });
 
   document.getElementById("recoList").innerHTML = html;
+}
+function getImage(name){
+  return IMAGES[name] || "https://via.placeholder.com/100";
 }
 // ======================
 function findSub(product) {
@@ -290,7 +294,7 @@ function findSub(product) {
     }
   }
 }
-
+let searchKeyword = "";
 // ======================
 function goDetail(product) {
   window.location.href = `product.html?name=${encodeURIComponent(product)}`;
@@ -336,6 +340,101 @@ function filterBySubCategory(cat) {
   });
 
   render();
+}
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".dots");
+
+// tạo dots
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
+
+  currentSlide = index;
+}
+
+function nextSlide() {
+  let next = (currentSlide + 1) % slides.length;
+  showSlide(next);
+}
+
+function prevSlide() {
+  let prev = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(prev);
+}
+
+function goToSlide(i){
+  showSlide(i);
+}
+
+// auto chạy
+setInterval(nextSlide, 4000);
+
+// nút
+document.querySelector(".next").onclick = nextSlide;
+document.querySelector(".prev").onclick = prevSlide;
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  searchKeyword = e.target.value.toLowerCase();
+  render();
+});
+// init
+showSlide(0);
+function render() {
+  const container = document.getElementById("productContainer");
+
+  let html = "";
+
+  Object.keys(DATA.subcategories).forEach(sub => {
+
+    // filter category
+    if (selectedCategory !== "All" && sub !== selectedCategory) return;
+
+    let products = DATA.subcategories[sub].top_products;
+
+    // 🔥 filter search
+    if (searchKeyword) {
+      products = products.filter(p =>
+        p.toLowerCase().includes(searchKeyword)
+      );
+    }
+
+    if (products.length === 0) return;
+
+    html += `<h2>${sub}</h2>`;
+    html += `<div class="grid">`;
+
+    products.forEach(p => {
+
+      const img = getImage(p);
+
+      html += `
+        <div class="card">
+          <img src="${img}" class="thumbImg"/>
+          <div class="cardBody">
+            <div class="cardTitle">${p}</div>
+            <button onclick="goDetail('${p}')">
+              Xem chi tiết
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
 }
 // ======================
 loadData();
